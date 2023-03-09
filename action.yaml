@@ -1,4 +1,4 @@
-name: "ChatGPT Reviewer"
+name: "ChatGPT Code Review"
 author: "Pengfei Ni"
 description: "Automated pull requests reviewing and issues triaging with ChatGPT"
 inputs:
