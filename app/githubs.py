@@ -92,7 +92,7 @@ class GithubClient:
                 pr.title, pr.body, changes)
             completion = self.get_completion(prompt)
             if completion != '':
-                reviewComments = f'''@{pr.user.login} Thanks for your contributions!\n\n{completion}'''
+                reviewComments = f'''{completion}''' # @{pr.user.login} Thanks for your contributions!\n\n
                 pr.create_issue_comment(reviewComments)
             return
 
@@ -109,16 +109,16 @@ class GithubClient:
                 continue
             if self.comment_per_file:
                 # Create a review comment on the file
-                reviewComments = f'''@{pr.user.login} Thanks for your contributions!\n\n{completion}'''
+                reviewComments = f'''{completion}''' # @{pr.user.login} Thanks for your contributions!\n\n
                 pr.create_review_comment(body=reviewComments,
                                          commit_id=list(pr.get_commits())[-1],
                                          path=file.filename,
                                          position=1)
             else:
                 reviews = reviews + \
-                    [f"**Here are review comments for file {file.filename}:**\n{completion}\n\n"]
+                    [f"**{file.filename}:**\n{completion}\n\n"] # Here are review comments for file
 
         if len(reviews) > 0:
             # Create a review comment on the PR
-            reviewComments = f'''@{pr.user.login} Thanks for your contributions!\n\n{''.join(reviews)}'''
+            reviewComments = f'''{''.join(reviews)}''' # @{pr.user.login} Thanks for your contributions!\n\n
             pr.create_issue_comment(reviewComments)
