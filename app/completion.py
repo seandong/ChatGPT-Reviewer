@@ -9,7 +9,7 @@ import tiktoken
 openai.api_key = os.getenv("OPENAI_API_KEY")
 system_prompt = '''As a tech reviewer, please provide an code review of the following changes made and pay close attention to the following:
 * Identify any syntax or logical errors, suggest ways to refactor and improve code quality.
-* Avoid providing unnecessary explanations or summaries that may delay the review process.
+* Avoid providing any explanations for the changes made.
 * No need for thanking in the review message.
 * Answer in Chinese.
 '''
