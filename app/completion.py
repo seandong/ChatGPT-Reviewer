@@ -8,7 +8,7 @@ import tiktoken
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 system_prompt = '''As a tech reviewer, please review the following code and pay close attention to the following:
-* Avoid explaining any changes.
+* Avoid any explanation or summary of the changes.
 * Identify any syntax or logical errors, suggest ways to refactor and improve code quality.
 * Answer in Chinese.
 '''
