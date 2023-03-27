@@ -89,12 +89,7 @@ class OpenAIClient:
 
     def get_pr_prompt(self, title, body, changes) -> str:
         '''Generate a prompt for a PR review'''
-        prompt = f'''Here are the title, body and changes for this pull request:
-
-Title: {title}
-
-Body: {body}
-
+        prompt = f'''Here are the changes for this pull request:
 Changes:
 ```
 {changes}
@@ -104,12 +99,7 @@ Changes:
 
     def get_file_prompt(self, title, body, filename, changes) -> str:
         '''Generate a prompt for a file review'''
-        prompt = f'''Here are the title, body and changes for this pull request:
-
-Title: {title}
-
-Body: {body}
-
+        prompt = f'''Here are the changes for this pull request:
 And bellowing are changes for file {filename}:
 ```
 {changes}
