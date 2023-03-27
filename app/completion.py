@@ -85,8 +85,7 @@ class OpenAIClient:
                 completion_text += event["choices"][0]["text"]
         return completion_text
 
-    def get_pr_prompt(self, title, body, 
-                      s) -> str:
+    def get_pr_prompt(self, title, body, changes) -> str:
         '''Generate a prompt for a PR review'''
         prompt = f'''Changes:
 ```
