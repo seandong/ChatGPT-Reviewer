@@ -7,7 +7,7 @@ import openai
 import tiktoken
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
-system_prompt = '''As a tech reviewer, please provide an code review of the following changes made and pay close attention to the following:
+system_prompt = '''As a tech reviewer, please review the following code and pay close attention to the following:
 * Identify any syntax or logical errors, suggest ways to refactor and improve code quality.
 * Avoid providing any explanations for the changes made.
 * No need for thanking in the review message.
@@ -88,8 +88,7 @@ class OpenAIClient:
     def get_pr_prompt(self, title, body, 
                       s) -> str:
         '''Generate a prompt for a PR review'''
-        prompt = f'''Here are the changes for this pull request:
-Changes:
+        prompt = f'''Changes:
 ```
 {changes}
 ```
@@ -98,8 +97,7 @@ Changes:
 
     def get_file_prompt(self, title, body, filename, changes) -> str:
         '''Generate a prompt for a file review'''
-        prompt = f'''Here are the changes for this pull request:
-And bellowing are changes for file {filename}:
+        prompt = f'''Changes:
 ```
 {changes}
 ```
